@@ -9,8 +9,9 @@ CORS(app)
 # Buat tabel otomatis (kalau belum ada di DB)
 Base.metadata.create_all(bind=engine)
 
-# Daftarkan route
-app.register_blueprint(web)
+# Daftarkan route dengan prefix /api
+app.register_blueprint(web, url_prefix="/api")
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
